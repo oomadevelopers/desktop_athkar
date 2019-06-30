@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html lang="ar" dir="rtl">
+	<head>
+		<title>الذاكرون</title>
+
+		<style>
+			html{
+				margin:0px;
+				padding:0px;
+			}
+			body {
+				background-color:#607D8B;
+				margin:0px;
+				
+			}
+			#settingBodyElmId {
+				background-color:#455A64;
+			}
+
+			#headerNameElmId{
+				width: 70%;
+				max-width:70%;
+				display: inline-block;
+				text-align: center;
+			}
+
+			#onOffElmId{
+				width:98px;
+				
+				background-color:green;
+				color:white;
+				
+				border:0;
+				border-radius:20px;
+				
+				
+				padding-right:10px;
+				padding-left:10px;
+				padding-top: 22px;
+				padding-bottom: 22px;
+				margin:10px auto;
+
+				text-align:center;
+				font-size:25px;
+				font-family:Arial;
+			}
+
+			#chosenPeriodMinutesElmId {
+				width: 120px;
+				text-align: center;
+				font-size: 1.3em;
+				
+				color: blanchedalmond;
+
+				border: 0px;
+    			background: unset;
+			}
+
+			#minutesPeriodLabelElmId {
+				color: blanchedalmond;
+				font-size: 1.3em;
+				padding-right: 20px;
+			}
+
+			#minutesPeriodRangeElmId{
+				width:220px;
+				
+			}
+
+
+		</style>
+
+		<style>
+			/* ref => https://codepen.io/jonasroessum/pen/ypwmf*/
+			
+			.spinner-wrap {
+				margin-top: 50px;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
+			.spinner {
+				height: 100px;
+				width: 100px;
+				display: inline-block;
+				margin: -50px auto 0;
+				animation: spin 1s steps(12, end) infinite;
+			}
+			.spinner:first-child {
+				margin-right: 50px;
+			}
+			.spinner i {
+				height: 30px;
+				width: 6px;
+				margin-left: -3px;
+				display: block;
+				transition: height 1s;
+				position: absolute;
+				left: 50%;
+				transform-origin: center 50px;
+				background: black;
+				box-shadow: 0 0 3px rgba(255, 255, 255, 0.7);
+				border-radius: 3px;
+			}
+			.spinner:nth-child(2) i {
+				height: 6px;
+			}
+			.spinner:hover i {
+				height: 6px;
+			}
+			.spinner:hover:nth-child(2) i {
+				height: 30px;
+			}
+
+			.spinner i:nth-child(1) {
+				opacity: 0.08;
+			}
+
+			.spinner i:nth-child(2) {
+				transform: rotate(30deg);
+				opacity: 0.167;
+			}
+
+			.spinner i:nth-child(3) {
+				transform: rotate(60deg);
+				opacity: 0.25;
+			}
+
+			.spinner i:nth-child(4) {
+				transform: rotate(90deg);
+				opacity: 0.33;
+			}
+
+			.spinner i:nth-child(5) {
+				transform: rotate(120deg);
+				opacity: 0.4167;
+			}
+
+			.spinner i:nth-child(6) {
+				transform: rotate(150deg);
+				opacity: 0.5;
+			}
+
+			.spinner i:nth-child(7) {
+				transform: rotate(180deg);
+				opacity: 0.583;
+			}
+
+			.spinner i:nth-child(8) {
+				transform: rotate(210deg);
+				opacity: 0.67;
+			}
+
+			.spinner i:nth-child(9) {
+				transform: rotate(240deg);
+				opacity: 0.75;
+			}
+
+			.spinner i:nth-child(10) {
+				transform: rotate(270deg);
+				opacity: 0.833;
+			}
+
+			.spinner i:nth-child(11) {
+				transform: rotate(300deg);
+				opacity: 0.9167;
+			}
+
+			.spinner i:nth-child(12) {
+				transform: rotate(330deg);
+				opacity: 1;
+			}
+
+			@keyframes spin {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+
+			#spinnerLoaderElmId {
+				display:none;
+			}
+
+		</style>
+
+		<style>
+
+			#notificationItemsElmId {
+				background-color: #455A64;
+			}
+
+			#notificationItemsElmId ul {
+				background-color: #252525;
+				height: 100%;
+				/* max-height: 1000px; */
+				
+				margin-top:0px;
+				margin-bottom:20px;
+
+				overflow: auto;
+				padding-right:0px;
+				list-style:none;
+				
+			}
+
+			#notificationItemsElmId ul > li {
+				width: 100%;
+				height: auto;
+				min-height: 40px;
+
+				padding-top: 10px;
+				padding-right: 20px;
+				border-right: 2px solid #252525;
+				border-bottom: 2px solid gray;
+				box-shadow: 0px -1px #0a0a0a;
+
+				font-size: 1.1em;
+			}
+
+			#notificationItemsElmId ul > li:nth-child(even){
+				color: orange;
+			}
+			#notificationItemsElmId ul > li:nth-child(odd){
+				color: lightcoral;
+			}
+
+			#dataHeaderElmId {
+				text-align: center;
+				background-color: #252525;
+				color: white;
+				margin: 0px;
+				
+				padding-top:15px;
+				padding-bottom: 15px;
+				opacity:0.8;
+				border-bottom:1px solid white;
+			}
+			
+		</style>
+	</head>
+	<body>
+
+		
+		<div>
+			<!-- Inner Icon -->
+			
+			<div style="width:25%;max-width:25%;padding:0px;margin-bottom: 20px;display: inline;">
+				<img src="./icons/inner_icon.png" alt="inner_icon" style="width: 150px;height: 120px;float:right;">
+			</div>
+
+			<div id="headerNameElmId">
+				<h1 >الإعدادات</h1>
+			</div>
+			
+			
+			<div style="clear: both;"></div>
+		<div>
+		
+		<div id="spinnerLoaderElmId" class="spinner-wrap">
+			<div class="spinner">
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+			</div>
+		  
+		</div>
+
+
+		<section id="settingBodyElmId">
+
+			<div style="text-align: left;">
+				<input type="button" id="onOffElmId" value="ON">
+			</div>
+			
+			<section style="text-align: right;padding:10px;">
+				<label for="minutesPeriodRangeElmId" id="minutesPeriodLabelElmId"> الذكر يظهر كل</label>
+				<input type="range" id="minutesPeriodRangeElmId" name="periodMinutes" min="5" max="240" 
+				oninput=""
+				onchange="periodHasChanged(this, this.value)">
+				<input type="text" readonly id="chosenPeriodMinutesElmId" value="دقيقة "><label></label>
+			</section>
+
+		</section>
+
+		<section id="notificationItemsElmId">
+			
+			<h2 id="dataHeaderElmId">الأذكار</h2>
+			<ul id="notificationItemsDataElmId">
+			</ul>
+		</section>
+    
+		<script src="./js/control_panel.js"></script>
+		<script src="./js/items_handler.js"></script>
+		<script src="./js/timer_handler.js"></script>
+
+	</body>
+</html>
